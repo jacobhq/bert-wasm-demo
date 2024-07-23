@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChatHistory">
+    <accountData>
+      <list>
+        <AccountData>
+          <accountId value="VXNlcjo1MDkwMTk=" />
+          <chats>
+            <list>
+              <chat>
+                <internalId value="c618a816-8fcc-46bc-8758-a55ecffe6f6d" />
+              </chat>
+              <chat>
+                <internalId value="44cf6d7e-7ba5-4680-8c0b-98c7856f64b1" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how do i use code from this file in embedder.rs" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To use the code from `lib.rs` in `embedder.rs`, you can import the required items using the `use` keyword. Here's an example of how you can import and use the items from `lib.rs` in `embedder.rs`:&#10;&#10;```rust&#10;// embedder.rs&#10;&#10;// Import the required items from lib.rs&#10;use crate::{BertModel, Config, DTYPE, Tokenizer, PaddingParams, console_log};&#10;&#10;// You can now use the imported items in your code&#10;fn main() {&#10;    console_log!(&quot;Hello from embedder.rs&quot;);&#10;&#10;    let config = Config::default();&#10;    let tokenizer = Tokenizer::from_pretrained(&quot;bert-base-uncased&quot;, None).unwrap();&#10;    let model = BertModel::new(&amp;config);&#10;&#10;    // Use the imported items as needed&#10;    // ...&#10;}&#10;```&#10;&#10;In the example above, we import the following items from `lib.rs`:&#10;&#10;- `BertModel`, `Config`, and `DTYPE` from the `bert` module&#10;- `Tokenizer` and `PaddingParams` from the `tokenizers` crate&#10;- `console_log` macro&#10;&#10;After importing these items, you can use them in your code within `embedder.rs`. For example, you can create instances of `BertModel`, `Config`, and `Tokenizer`, and use the `console_log` macro to log messages to the console.&#10;&#10;Note that `embedder.rs` and `lib.rs` are assumed to be in the same crate (or module). If they are in different crates, you'll need to add the appropriate crate dependencies and import the items using the crate name as a prefix (e.g., `use crate_name::BertModel`)." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-07-23T14:47:52.7544976" />
+              </chat>
+            </list>
+          </chats>
+        </AccountData>
+      </list>
+    </accountData>
+  </component>
+</project>
