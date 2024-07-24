@@ -30,22 +30,24 @@ export default function App() {
     };
 
     initializeModel();
-  }, []);
+  }, [model]);
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
   };
 
-  const getEmbeddings = () => {
+  const getEmbeddings = async () => {
     if (!inputText) {
       alert('Please enter some text.');
       return;
     }
 
-    const result = model.get_embeddings({
+    console.log(inputText)
+    const result = await model.get_embeddings({
       sentences: [inputText],
       normalize_embeddings: true
     });
+    console.log(result)
 
     setEmbeddings(result.data[0]);
   };
