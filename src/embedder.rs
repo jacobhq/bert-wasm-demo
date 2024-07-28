@@ -1,7 +1,7 @@
 use candle_core::{DType, Device, Tensor};
 use candle_nn::VarBuilder;
 use candle_transformers::models::bert::{BertModel, Config};
-use crate::{console_log};
+use crate::console_log;
 use tokenizers::{PaddingParams, Tokenizer};
 use wasm_bindgen::prelude::*;
 
@@ -18,7 +18,7 @@ impl Model {
         console_error_panic_hook::set_once();
         console_log!("loading model");
         let device = &Device::Cpu;
-        let vb = VarBuilder::from_buffered_safetensors(weights, DType::F64, device)?;
+        let vb = VarBuilder::from_buffered_safetensors(weights, DType::F32, device)?;
         let config: Config = serde_json::from_slice(&config)?;
         let tokenizer =
             Tokenizer::from_bytes(&tokenizer).map_err(|m| JsError::new(&m.to_string()))?;
@@ -78,7 +78,7 @@ impl Model {
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct Embeddings {
-    data: Vec<Vec<f64>>,
+    data: Vec<Vec<f32>>,
 }
 
 #[derive(serde::Serialize, serde::Deserialize)]
